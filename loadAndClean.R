@@ -1,17 +1,31 @@
 # Programing project #1 Exploratory Data 
+#
+# This file is general and is sourced by all the other 4 files
+#
+# The functions here load and clean the data in a basic way
+#
+# I am using one more file (this one) than specified, because 
+#   I did not want to repeat code in all the 4 files.
+#
+# The function loadAndClean is called from all the other script files to load and
+#   clean the data before creating the plots
 
+# Concatenates two fators (one with the date and one with the time) into a single string
 makeItString <- function (date, time) {
   paste(as.character(date), as.character(time))
 }
 
+# Convers two factors (one with the date and one with the time) into a DateTime
 convertDate <- function(date, time) {
   strptime(makeItString(date, time), "%d/%m/%Y %H:%M:%S")
 }
 
+# Converts a string into a date/time
 convertDate1 <- function(dateTimeStr) {
   strptime(dateTimeStr, "%d/%m/%Y %H:%M:%S")
 }
 
+# Loads and cleans the data
 loadAndClean <- function ()
 {
   if (!file.exists('data/household_power_consumption.txt')) {
